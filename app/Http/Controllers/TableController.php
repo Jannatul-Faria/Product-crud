@@ -2,16 +2,14 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Product;
 use App\Models\Sold;
-use App\Models\Table;
 use Illuminate\Http\Request;
 
-class AdminController extends Controller
+class TableController extends Controller
 {
-    public function dashboard()
-    {
-        return view('backend.admin');
-    }
+   
     public function task()
     {
         return view('backend.task');
@@ -39,7 +37,7 @@ class AdminController extends Controller
     }
     public function tables()
     {
-        $products=Table::get();
+        $products=Product::get();
 
         return view('backend.tables')->with('products',$products);    
     }
@@ -51,7 +49,7 @@ class AdminController extends Controller
 
     public function sell( $id)
     {
-         $product = Table::findOrFail($id);
+         $product = Product::findOrFail($id);
         return view('backend.Pages.sell', compact('product'));
        
        
@@ -69,10 +67,10 @@ class AdminController extends Controller
        
             //product save
             Sold::create($request->input());
-            Table::where('id',$id)->decrement('quantity', $request->input('quantity'));
+            Product::where('id',$id)->decrement('quantity', $request->input('quantity'));
 
 
-        Table::where('quantity','=', 0)
+        Product::where('quantity','=', 0)
         ->delete();
            
         return redirect()->route('admin.tables')->with('success','product add successfully');
@@ -136,7 +134,7 @@ class AdminController extends Controller
             $imagestore= $file->move(public_path('photos'), $filename);
 
             //product save
-            Table::create([
+            Product::create([
                 'name' => $request->name,
                 'description' => $request->description,
                 'price' => $request->price,
@@ -162,7 +160,7 @@ class AdminController extends Controller
 
     public function edit(Request $request, $id){
 
-        $product = Table::findOrFail($id);
+        $product = Product::findOrFail($id);
         return view('backend.Pages.edit', compact('product'));
 
     }
@@ -189,7 +187,7 @@ class AdminController extends Controller
             $imagestore= $file->move(public_path('photos'), $filename);
 
             //product save
-            $product=Table::findOrFail($id);
+            $product=Product::findOrFail($id);
             $product->update([
                 'name' => $request->name,
                 'description' => $request->description,
@@ -222,7 +220,7 @@ class AdminController extends Controller
 
     
     public function delete($id){
-        $product=Table::findorFail($id);
+        $product=Product::findorFail($id);
         $product->delete();
         return redirect()->route('admin.tables')->with('success');
     }

@@ -63,7 +63,7 @@
         </div>
     </div>
     <div class="card-footer text-center py-3">
-        <p class="text-warning mb-0">Do not have an account? <a href="{{ route('admin.register') }}"> Sign Up here</a>
+        <p class="text-warning mb-0">Do not have an account? <a href="{{ route('admin.register') }}"> Register here</a>
         </p>
     </div>
 </div>

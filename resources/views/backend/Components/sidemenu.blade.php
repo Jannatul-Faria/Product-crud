@@ -1,7 +1,7 @@
 <!--Start sidebar-wrapper-->
 <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
     <div class="brand-logo">
-        <a href="{{ route('admin.dashboard') }}">
+        <a href="{{ route('dashboard') }}">
             <img src="{{ asset('assets/images') }}/favicon2.png" class="logo-icon" alt="logo icon">
             <h5 class="logo-text">Jannatul Faria</h5>
         </a>
@@ -11,7 +11,7 @@
 
 
         <li>
-            <a href="{{ route('admin.dashboard') }}">
+            <a href="{{ route('dashboard') }}">
                 <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
             </a>
         </li>
