@@ -12,34 +12,34 @@ class TableController extends Controller
    
     public function task()
     {
-        return view('backend.task');
+        return view('backend.Pages.dashboard.task');
     }
     
     public function forms()
     {
-        return view('backend.forms');
+        return view('backend.Pages.dashboard.forms');
     }
     public function login()
     {
-        return view('backend.login');
+        return view('backend.Pages.auth.login');
     }
     public function profile()
     {
-        return view('backend.profile');
+        return view('backend.Pages.dashboard.profiles');
     }
     public function register()
     {
-        return view('backend.register');
+        return view('backend.Pages.auth.register');
     }
     public function reset()
     {
-        return view('backend.reset');
+        return view('backend.Pages.auth.reset');
     }
     public function tables()
     {
         $products=Product::get();
 
-        return view('backend.tables')->with('products',$products);    
+        return view('backend.Pages.dashboard.tables')->with('products',$products);    
     }
 
 
@@ -50,7 +50,7 @@ class TableController extends Controller
     public function sell( $id)
     {
          $product = Product::findOrFail($id);
-        return view('backend.Pages.sell', compact('product'));
+        return view('backend.Pages.dashboard.sell', compact('product'));
        
        
     }
@@ -86,7 +86,7 @@ class TableController extends Controller
     {
         $products=Sold::get();
         // return redirect()->route('admin.tables');
-         return view('backend.sold')->with('products',$products);
+         return view('backend.Pages.dashboard.sold')->with('products',$products);
        
     }
     
@@ -101,7 +101,7 @@ class TableController extends Controller
 
     public function add()
     {
-        return view('backend.Pages.add');
+        return view('backend.Pages.dashboard.add');
     }
     
 
@@ -161,7 +161,7 @@ class TableController extends Controller
     public function edit(Request $request, $id){
 
         $product = Product::findOrFail($id);
-        return view('backend.Pages.edit', compact('product'));
+        return view('backend.Pages.dashboard..edit', compact('product'));
 
     }
     

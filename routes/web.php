@@ -5,8 +5,7 @@ use App\Http\Controllers\TableController;
 
 
 
- Route::view('/', 'backend.admin')->name('dashboard');
-
+ //Route::view('/', 'backend.Pages.dashboard.dashboard')->name('dashboard');
 // Table route:
 Route::group(['prefix'=>'admin', 'as' => 'admin.'], function () {
    
@@ -16,10 +15,6 @@ Route::group(['prefix'=>'admin', 'as' => 'admin.'], function () {
     Route::post('/store', [TableController::class, 'store'])->name('store');
     
     Route::get('/forms', [TableController::class, 'forms'])->name('forms');
-    Route::get('/login', [TableController::class, 'login'])->name('login');
-    Route::get('/profile', [TableController::class, 'profile'])->name('profile');
-    Route::get('/register', [TableController::class, 'register'])->name('register');
-    Route::get('/reset', [TableController::class, 'reset'])->name('reset');
     Route::get('/tables', [TableController::class, 'tables'])->name('tables');
 
     Route::get('/sell/{id?}', [TableController::class, 'sell'])->name('sell');
@@ -29,5 +24,15 @@ Route::group(['prefix'=>'admin', 'as' => 'admin.'], function () {
     
     Route::delete('/delete/{id}', [TableController::class, 'delete'])->name('delete');
 });
+
+
+Route::view('/', 'backend.Pages.auth.login')->name('login');
+Route::view('/userRegister', 'backend.Pages.auth.register')->name('register');
+Route::view('/reset', 'backend.Pages.auth.reset');
+Route::view('/sendOtp', 'backend.Pages.auth.send-otp');
+Route::view('/varifyOtp', 'backend.Pages.auth.varify-otp');
+Route::view('/userProfile', 'backend.Pages.dashboard.profile')->name('profile');
+
+
 
 
