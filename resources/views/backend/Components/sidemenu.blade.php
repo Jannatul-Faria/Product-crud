@@ -56,19 +56,19 @@
         </li> --}}
 
         <li>
-            <a href="{{ route('admin.profile') }}">
+            <a href="{{ route('profile') }}">
                 <i class="zmdi zmdi-face"></i> <span>Profile</span>
             </a>
         </li>
 
         <li>
-            <a href="{{ route('admin.login') }}" target="_blank">
+            <a href="{{ route('login') }}" target="_blank">
                 <i class="zmdi zmdi-lock"></i> <span>Login</span>
             </a>
         </li>
 
         <li>
-            <a href="{{ route('admin.register') }}" target="_blank">
+            <a href="{{ route('register') }}" target="_blank">
                 <i class="zmdi zmdi-account-circle"></i> <span>Registration</span>
             </a>
         </li>

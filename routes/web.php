@@ -2,10 +2,42 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TableController;
+use App\Http\Controllers\UserController;
+use Laravel\Sanctum\Sanctum;
+
+ Route::view('/', 'backend.Pages.dashboard.dashboard')->name('dashboard');
+// Web Api Routes:
+Route::post("/userRegistation", [UserController::class, 'userRegistation']);
+Route::post("/userLogin", [UserController::class, 'userLogin']);
+Route::get("/userProfile", [UserController::class, 'userProfile'])->middleware('auth:Sanctum');
 
 
 
- //Route::view('/', 'backend.Pages.dashboard.dashboard')->name('dashboard');
+
+
+
+
+
+
+
+
+
+
+// Page Routes:
+Route::view('/login', 'backend.Pages.auth.login')->name('login');
+Route::view('/userRegistation', 'backend.Pages.auth.register')->name('register');
+Route::view('/reset', 'backend.Pages.auth.reset');
+Route::view('/sendOtp', 'backend.Pages.auth.send-otp');
+Route::view('/varifyOtp', 'backend.Pages.auth.varify-otp');
+ Route::view('/userProfile', 'backend.Pages.dashboard.profile')->name('profile');
+
+
+
+
+
+
+
+
 // Table route:
 Route::group(['prefix'=>'admin', 'as' => 'admin.'], function () {
    
@@ -23,16 +55,6 @@ Route::group(['prefix'=>'admin', 'as' => 'admin.'], function () {
     Route::post('/update/{id}', [TableController::class, 'update'])->name('update');
     
     Route::delete('/delete/{id}', [TableController::class, 'delete'])->name('delete');
+
+   
 });
-
-
-Route::view('/', 'backend.Pages.auth.login')->name('login');
-Route::view('/userRegister', 'backend.Pages.auth.register')->name('register');
-Route::view('/reset', 'backend.Pages.auth.reset');
-Route::view('/sendOtp', 'backend.Pages.auth.send-otp');
-Route::view('/varifyOtp', 'backend.Pages.auth.varify-otp');
-Route::view('/userProfile', 'backend.Pages.dashboard.profile')->name('profile');
-
-
-
-

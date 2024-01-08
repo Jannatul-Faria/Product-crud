@@ -37,7 +37,9 @@ class TableController extends Controller
     }
     public function tables()
     {
-        $products=Product::get();
+
+        $products = Product::get();
+        // $products=Product::latest()->paginate(2); // we can paginate like this
 
         return view('backend.Pages.dashboard.tables')->with('products',$products);    
     }

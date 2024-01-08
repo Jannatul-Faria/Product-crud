@@ -75,6 +75,11 @@
 
                              </tbody>
                          </table>
+
+
+                         {{-- <div class="">
+                             {{ $products->links() }}
+                         </div>       // for paginate --}}
                      </div>
                  </div>
              </div>
