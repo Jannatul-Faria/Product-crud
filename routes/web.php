@@ -9,8 +9,9 @@ use Laravel\Sanctum\Sanctum;
 // Web Api Routes:
 Route::post("/userRegistation", [UserController::class, 'userRegistation']);
 Route::post("/userLogin", [UserController::class, 'userLogin']);
-Route::get("/userProfile", [UserController::class, 'userProfile'])->middleware('auth:Sanctum');
-
+Route::get("/userProfile", [UserController::class, 'userProfile'])->middleware('auth:sanctum');// protected route
+Route::get("/logOut", [UserController::class, 'logOut'])->middleware('auth:sanctum');// protected route
+Route::post("/userUpdate", [UserController::class, 'userUpdate'])->middleware('auth:sanctum');// protected route
 
 
 
@@ -29,7 +30,7 @@ Route::view('/userRegistation', 'backend.Pages.auth.register')->name('register')
 Route::view('/reset', 'backend.Pages.auth.reset');
 Route::view('/sendOtp', 'backend.Pages.auth.send-otp');
 Route::view('/varifyOtp', 'backend.Pages.auth.varify-otp');
- Route::view('/userProfile', 'backend.Pages.dashboard.profile')->name('profile');
+Route::view('/userProfile', 'backend.Pages.dashboard.profile')->name('profile');
 
 
 

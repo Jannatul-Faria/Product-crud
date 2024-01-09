@@ -2,27 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Exception;
+use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use PhpParser\Node\Stmt\TryCatch;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
     public function userRegistation(Request $request){
+        // must be implement try catch:
         try {
+            // validation
             $request->validate([
-                'firstName' =>'required|string|max:50',
-                 'lastName'=>'required|string|max:50',
+                'firstname' =>'required|string|max:50',
+                 'lastname'=>'required|string|max:50',
                  'email'=>'required|string|email|unique:users,email|max:50', 
                  'mobile'=>'required|string|max:13', 
                 'password'=>'required|string|min:4'
             ]);
 
+            // create user 
             User::create([
-                'firstName' =>$request->input('firstName'),
-                 'lastName' =>$request->input('lastName'),
+                'firstname' =>$request->input('firstname'),
+                 'lastname' =>$request->input('lastname'),
                  'email' =>$request->input('email'), 
                  'mobile' =>$request->input('mobile'), 
                 'password' =>Hash::make($request->input('password')) 
@@ -66,5 +70,45 @@ class UserController extends Controller
 
     }
 
-    
+    public function userProfile(Request $request){
+        
+          return  Auth::user();
+       //return  Auth::email();// if i want to get only email , but it does not get :-()
+        // return  Auth::id();// its get
+        // return  Auth::user()['firstname']; //get specific data        
+    }
+
+
+    public function logOut(Request $request){
+        $request->user()->tokens()->delete();
+        return redirect('/userLogin');
+    }
+
+
+    public function userUpdate(Request $request){
+          try {
+            // validation
+            $request->validate([
+                'firstname' =>'required|string|max:50',
+                 'lastname'=>'required|string|max:50',
+                  //'email'=>'required|string|email|unique:users,email|max:50',
+                 'mobile'=>'required|string|max:13', 
+               
+            ]);
+
+            // create user 
+            User::where('id','=', Auth::id())->update ([
+                'firstname' =>$request->input('firstname'),
+                 'lastname' =>$request->input('lastname'),
+                 'email' =>$request->input('email'), 
+                 'mobile' =>$request->input('mobile'), 
+              
+            ]);
+
+            return response()->json(['status' => 'success', 'message' => 'User update successfully.']);
+
+        } catch (Exception $e) {
+            return response()->json(['status' => 'Fail', 'message' => $e->getMessage()]);
+        }
+    }
 }
