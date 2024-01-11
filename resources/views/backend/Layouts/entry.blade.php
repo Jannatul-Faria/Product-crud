@@ -11,13 +11,13 @@
     <!-- loader-->
 
     <link href="{{ asset('assets/css') }}/pace.min.css" rel="stylesheet" />
-    <script src="{{ asset('assets/js') }}/pace.min.js"></script>
+
     <!--favicon-->
     <link rel="icon" href="{{ asset('assets/images') }}/favicon.ico" type="image/x-icon">
     <!--Full Calendar Css-->
     <link href="{{ asset('assets/plugins') }}/fullcalendar/css/fullcalendar.min.css" rel='stylesheet' />
     <!-- Vector CSS -->
-    <link href="{{ asset('assets/plugins') }}/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    {{-- <link href="{{ asset('assets/plugins') }}/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" /> --}}
     <!-- simplebar CSS-->
     <link href="{{ asset('assets/plugins') }}/simplebar/css/simplebar.css" rel="stylesheet" />
     <!-- Bootstrap core CSS-->
@@ -36,13 +36,13 @@
 <body class="bg-theme bg-theme1">
 
     <!-- start loader -->
-    <div id="pageloader-overlay" class="visible incoming">
+    {{-- <div id="pageloader-overlay" class="visible incoming">
         <div class="loader-wrapper-outer">
             <div class="loader-wrapper-inner">
                 <div class="loader"></div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- end loader -->
     <!-- Start wrapper-->
     <div id="wrapper">
@@ -53,33 +53,38 @@
 
 
 
-        @include('backend.Components.rightside')
+        {{-- @include('backend.Components.rightside') --}}
 
     </div><!--End wrapper-->
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('assets/js') }}/jquery.min.js"></script>
+    <script src="{{ asset('assets/js') }}/jquery-3.7.0.min.js"></script>
     <script src="{{ asset('assets/js') }}/popper.min.js"></script>
     <script src="{{ asset('assets/js') }}/bootstrap.min.js"></script>
+    <script src="{{ asset('assets/js') }}/config.js"></script>
+    <script src="{{ asset('assets/js') }}/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('assets/js') }}/toastify-js.js"></script>
+    <script src="{{ asset('assets/js') }}/axios.min.js"></script>
+
+
 
     <!-- simplebar js -->
-    <script src="{{ asset('assets/plugins') }}/simplebar/js/simplebar.js"></script>
+    {{-- <script src="{{ asset('assets/plugins') }}/simplebar/js/simplebar.js"></script> --}}
     <!-- sidebar-menu js -->
-    <script src="{{ asset('assets/js') }}/sidebar-menu.js"></script>
+    {{-- <script src="{{ asset('assets/js') }}/sidebar-menu.js"></script> --}}
     <!-- loader scripts -->
-    <script src="{{ asset('assets/js') }}/jquery.loading-indicator.js"></script>
+    {{-- <script src="{{ asset('assets/js') }}/jquery.loading-indicator.js"></script>
     <!-- Custom scripts -->
-    <script src="{{ asset('assets/js') }}/app-script.js"></script>
+    <script src="{{ asset('assets/js') }}/app-script.js"></script> --}}
     <!-- Chart js -->
-
-    <script src="{{ asset('assets/plugins') }}/Chart.js/Chart.min.js"></script>
-
+    {{-- <script src="{{ asset('assets/js') }}/pace.min.js"></script>
+    <script src="{{ asset('assets/plugins') }}/Chart.js/Chart.min.js"></script> --}}
     <!-- Index js -->
-    <script src="{{ asset('assets/js') }}/index.js"></script>
+    {{-- <script src="{{ asset('assets/js') }}/index.js"></script> --}}
     <!-- Full Calendar -->
-    <script src='{{ asset('assets/plugins') }}/fullcalendar/js/moment.min.js'></script>
+    {{-- <script src='{{ asset('assets/plugins') }}/fullcalendar/js/moment.min.js'></script>
     <script src='{{ asset('assets/plugins') }}/fullcalendar/js/fullcalendar.min.js'></script>
-    <script src="{{ asset('assets/plugins') }}/fullcalendar/js/fullcalendar-custom-script.js"></script>
+    <script src="{{ asset('assets/plugins') }}/fullcalendar/js/fullcalendar-custom-script.js"></script> --}}
 
 </body>
 

@@ -65,7 +65,8 @@
                 </div>
             </div>
             <div class="card-footer text-center py-3">
-                <p class="text-warning mb-0">Already have an account? <a href="{{ route('login') }}"> Sign In here</a></p>
+                <p class="text-warning mb-0">Already have an account? <a href="{{ url('/login') }}"> Sign In
+                        here</a></p>
             </div>
         </div>
     </div>

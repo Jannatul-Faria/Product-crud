@@ -62,7 +62,7 @@
     <script src="{{ asset('assets/js') }}/jquery-3.7.0.min.js"></script>
     <script src="{{ asset('assets/js') }}/popper.min.js"></script>
     <script src="{{ asset('assets/js') }}/bootstrap.min.js"></script>
-    <script src="{{ asset('assets/js') }}/config.min.js"></script>
+    <script src="{{ asset('assets/js') }}/config.js"></script>
     <script src="{{ asset('assets/js') }}/jquery.dataTables.min.js"></script>
     <script src="{{ asset('assets/js') }}/toastify-js.js"></script>
     <script src="{{ asset('assets/js') }}/axios.min.js"></script>
